@@ -111,6 +111,8 @@ public class Player : MonoBehaviour
             return;
         }
 
+        AudioManager.Instance.PlaySFX("BoltInHold");
+
         holdingBolt.transform.position = position;
         holdingBolt.SetAsNoSelected();
         holdingBolt = null;

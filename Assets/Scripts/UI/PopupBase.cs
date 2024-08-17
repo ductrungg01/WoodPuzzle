@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using WoodPuzzle.Core;
 
@@ -10,6 +11,8 @@ namespace WoodPuzzle.UI
     {
         private Action callbackWhenHide;
 
+        public bool IsShowing { get; private set; }
+
         public virtual void Awake()
         {
             gameObject.SetActive(false);
@@ -17,11 +20,14 @@ namespace WoodPuzzle.UI
 
         public virtual void Show()
         {
+            IsShowing = true;
             Show(null);
         }
 
         public virtual void Show(Action callback = null)
         {
+            IsShowing = true;
+
             if (callback != null)
             {
                 callbackWhenHide = callback;
@@ -36,6 +42,8 @@ namespace WoodPuzzle.UI
 
         public virtual void Hide()
         {
+            IsShowing = false;
+
             OnHiding();
             gameObject.SetActive(false);
             OnHidden();

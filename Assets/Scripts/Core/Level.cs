@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WoodPuzzle.UI;
 
 namespace WoodPuzzle.Core
 {
@@ -15,6 +16,8 @@ namespace WoodPuzzle.Core
 
         private int numberOfWood = 0;
 
+        private PopupLoading popupLoading;
+
         public void AddWood() { numberOfWood++; }
         public void RemoveWood() { 
             numberOfWood--; 
@@ -27,12 +30,17 @@ namespace WoodPuzzle.Core
         private void Start()
         {
             remainTime = levelTime;
-        }
+            ++remainTime; // 1s for player see the level time;
 
+            popupLoading = UiManager.Instance.GetPopupLoading();
+        }
+        
         private void Update()
         {
             UiManager.Instance.GetPopupInGame().UpdateRemainTime(remainTime);
-            remainTime -= Time.deltaTime;
+
+            if (!popupLoading.IsShowing)
+                remainTime -= Time.deltaTime;
 
             if (remainTime <= 0 )
             {
