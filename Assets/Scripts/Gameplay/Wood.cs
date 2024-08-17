@@ -35,6 +35,8 @@ public class Wood : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("DeathZone"))
         {
+            AudioManager.Instance.PlaySFX("WoodDropped");
+
             level.RemoveWood();
 
             // enable the polygon collider for improve performance
@@ -42,6 +44,21 @@ public class Wood : MonoBehaviour
 
             // Disable after 0.5 second
             StartCoroutine(DisableAfterDelay(0.5f));
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bolt"))
+        {
+            // Get the collision force based on the relative velocity of the objects
+            float collisionForce = collision.relativeVelocity.magnitude;
+
+            // Adjust the volume based on the collision force
+            float volume = Mathf.Clamp01(collisionForce / 200.0f); // Assume 200.0f is the max force expected
+
+            // Call PlaySFX with the appropriate volume level
+            AudioManager.Instance.PlaySFX("WoodHitBolt", volume);
         }
     }
 

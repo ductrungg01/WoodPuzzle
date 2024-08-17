@@ -15,6 +15,9 @@ namespace WoodPuzzle.UI
         public Button replayButton;
         public Button homeButton;
 
+        public List<ParticleSystem> win_ParticleSystems;
+        public List<ParticleSystem> lose_ParticleSystems;
+
         private void Start()
         {
             homeButton.onClick.AddListener(OnClickHomeButton);
@@ -23,6 +26,24 @@ namespace WoodPuzzle.UI
             if (type == EndGameType.LOSE) 
                 replayButton.onClick.AddListener(OnClickBtnReplay);
                 
+        }
+
+        private void OnEnable()
+        {
+            if (type == EndGameType.WIN)
+            {
+                foreach (ParticleSystem p in win_ParticleSystems)
+                {
+                    p.Play();
+                }
+            }
+            else if (type == EndGameType.LOSE)
+            {
+                foreach (ParticleSystem p in lose_ParticleSystems) 
+                { 
+                    p.Play(); 
+                }
+            }
         }
 
 

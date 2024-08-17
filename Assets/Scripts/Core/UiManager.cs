@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using WoodPuzzle.UI;
 
 namespace WoodPuzzle.Core
@@ -40,6 +41,25 @@ namespace WoodPuzzle.Core
             });
         }
 
+        #region SETUP UI ELEMENT ATTRIBUTES
+
+        private void SetupElementAttributes(GameObject go)
+        {
+            var buttons = go.GetComponentsInChildren<Button>();
+            foreach (var button in buttons)
+            {
+                SetupButtonSoundClick(button);
+            }
+        }
+
+        private void SetupButtonSoundClick(Button btn)
+        {
+            btn.onClick.AddListener(
+                () => AudioManager.Instance.PlaySFX("ButtonClick")
+            );
+        }
+
+        #endregion
 
         #region POPUP SPLASH
         private PopupSplash _popupSplash;
@@ -49,6 +69,7 @@ namespace WoodPuzzle.Core
                 return _popupSplash;
 
             GameObject newObj = Instantiate(popupSplashPrefab, popupTargetPosition.transform.parent);
+            SetupElementAttributes(newObj);
             _popupSplash = newObj.GetComponent<PopupSplash>();
             return _popupSplash;
         }
@@ -62,6 +83,7 @@ namespace WoodPuzzle.Core
                 return _popupHome;
 
             GameObject newObj = Instantiate(popupHomePrefab, popupTargetPosition.transform);
+            SetupElementAttributes(newObj);
             _popupHome = newObj.GetComponent<PopupHome>();
             return _popupHome;
         }
@@ -75,6 +97,7 @@ namespace WoodPuzzle.Core
                 return _popupLoading;
 
             GameObject newObj = Instantiate(popupLoadingPrefab, popupTargetPosition.transform.parent);
+            SetupElementAttributes(newObj);
             _popupLoading = newObj.GetComponent<PopupLoading>();
             return _popupLoading;
         }
@@ -88,6 +111,7 @@ namespace WoodPuzzle.Core
                 return _popupInGame;
 
             GameObject newObj = Instantiate(popupInGamePrefab, popupTargetPosition.transform);
+            SetupElementAttributes(newObj);
             _popupInGame = newObj.GetComponent<PopupInGame>();
             return _popupInGame;
         }
@@ -101,6 +125,7 @@ namespace WoodPuzzle.Core
                 return _popupEndGameWin;
 
             GameObject newObj = Instantiate(popupEndGameWinPrefab, popupTargetPosition.transform);
+            SetupElementAttributes(newObj);
             _popupEndGameWin = newObj.GetComponent<PopupEndGame>();
             return _popupEndGameWin;
         }
@@ -111,6 +136,7 @@ namespace WoodPuzzle.Core
                 return _popupEndGameLose;
 
             GameObject newObj = Instantiate(popupEndGameLosePrefab, popupTargetPosition.transform);
+            SetupElementAttributes(newObj);
             _popupEndGameLose = newObj.GetComponent<PopupEndGame>();
             return _popupEndGameLose;
         }

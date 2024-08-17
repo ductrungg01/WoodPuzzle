@@ -304,6 +304,10 @@ MonoBehaviour:
   nextLevelButton: {fileID: 4397046013609388022}
   replayButton: {fileID: 0}
   homeButton: {fileID: 346237723451893044}
+  win_ParticleSystems:
+  - {fileID: 5231125274028684042}
+  - {fileID: 8101854829005052886}
+  lose_ParticleSystems: []
 --- !u!1 &4695326556931224378
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,6 +916,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8953909735390984801, guid: 85b062a5517cf8345bb6784ffbed4877, type: 3}
   m_PrefabInstance: {fileID: 6628427523081088411}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &5231125274028684042 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1397337502211612305, guid: 85b062a5517cf8345bb6784ffbed4877, type: 3}
+  m_PrefabInstance: {fileID: 6628427523081088411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7717522553737469572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1016,5 +1025,10 @@ PrefabInstance:
 --- !u!4 &8101854829005052881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1978689737715041621, guid: afa54037ffe627545886e2741abb365d, type: 3}
+  m_PrefabInstance: {fileID: 7717522553737469572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8101854829005052886 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1978689737715041618, guid: afa54037ffe627545886e2741abb365d, type: 3}
   m_PrefabInstance: {fileID: 7717522553737469572}
   m_PrefabAsset: {fileID: 0}

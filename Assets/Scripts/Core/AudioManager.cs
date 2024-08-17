@@ -30,14 +30,17 @@ namespace WoodPuzzle.Core
             bgmSource = gameObject.AddComponent<AudioSource>();
         }
 
-        public void PlaySFX(string name, bool loop = false)
+        public void PlaySFX(string name, float volume = .5f, bool loop = false)
         {
             AudioData sfx = sfxList.Find(s => s.audioName == name);
             if (sfx != null)
             {
                 sfxSource.clip = sfx.audioClip;
+                sfxSource.volume = volume; 
                 sfxSource.loop = loop;
                 sfxSource.Play();
+
+                Debug.Log($"Play {name}");
             }
             else
             {
@@ -130,7 +133,15 @@ namespace WoodPuzzle.Core
 
         public void OnFinishGame(EndGameType type)
         {
-            throw new System.NotImplementedException();
+            if (type == EndGameType.WIN)
+            {
+                PlaySFX("Yeah");
+            } 
+
+            if (type == EndGameType.LOSE)
+            {
+                PlaySFX("Lose");
+            }
         }
     }
 }

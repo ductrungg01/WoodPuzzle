@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WoodPuzzle.Core;
 
 public class Player : MonoBehaviour
 {
@@ -32,8 +33,6 @@ public class Player : MonoBehaviour
 
             if (hit.collider != null)
             {
-                //Debug.Log("Collide with " + hit.collider.gameObject.name);
-
                 // Check if picking the bolt
                 Bolt clickedBolt = hit.collider.GetComponent<Bolt>();
                 if (clickedBolt != null)
@@ -55,8 +54,8 @@ public class Player : MonoBehaviour
                         }
                         else
                         {
+                            AudioManager.Instance.PlaySFX("BoltInHoldFail");
                             Debug.Log("Collide with " + hit.collider.gameObject.name + "| hold overlapse with wood");
-                            // sound click fail
                         }
                     }
                 }
@@ -99,6 +98,8 @@ public class Player : MonoBehaviour
             // setup new holding bolt and set it is selected
             holdingBolt = clickedBolt;
             holdingBolt.SetAsSelected();
+
+            AudioManager.Instance.PlaySFX("ChooseABolt");
         }
     }
 

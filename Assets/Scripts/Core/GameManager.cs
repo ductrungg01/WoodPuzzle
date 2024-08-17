@@ -78,6 +78,7 @@ namespace WoodPuzzle.Core
 
             UiManager.Instance.OnFinishGame(type);
             LevelManager.Instance.OnFinishGame(type);
+            AudioManager.Instance.OnFinishGame(type);
         }
         
     }
