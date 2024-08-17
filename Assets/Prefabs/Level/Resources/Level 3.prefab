@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4188c6aa21dadc46935a8d4caac28e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTime: 30
+  levelTime: 60
   woodParentInHierachy: {fileID: 2860114776371181178}
   boltParentInHierachy: {fileID: 6918501574517218842}
   holdParentInHierachy: {fileID: 7957799583019352023}

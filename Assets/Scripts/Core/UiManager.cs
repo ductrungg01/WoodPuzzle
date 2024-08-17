@@ -23,7 +23,10 @@ namespace WoodPuzzle.Core
         {
             // Singleton
             if (Instance == null)
+            {
                 Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
             else
             {
                 Destroy(this.gameObject);
@@ -141,6 +144,8 @@ namespace WoodPuzzle.Core
 
         public void OnFinishGame(EndGameType type)
         {
+            UiManager.Instance.GetPopupInGame().Hide();
+
             if ((EndGameType)type == EndGameType.WIN)
             {
                 UiManager.Instance.GetPopupEndGameWin().Show();

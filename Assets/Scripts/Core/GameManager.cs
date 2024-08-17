@@ -24,11 +24,15 @@ namespace WoodPuzzle.Core
 
         private void Awake()
         {
-            if (Instance == null) 
+            if (Instance == null)
+            {
                 Instance = this;
-            else { 
-                Destroy(this.gameObject); 
-                return; 
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+                return;
             }
         }
 
