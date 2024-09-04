@@ -40,7 +40,10 @@ namespace WoodPuzzle.UI
 
         public void OnClickBtnPause()
         {
-
+            if (GameManager.CurrentGameState == GameState.PLAYING)
+                GameManager.Instance.PauseGame();
+            else
+                GameManager.Instance.ResumeGame();
         }
 
         public void OnClickBtnEndGame(EndGameType type)

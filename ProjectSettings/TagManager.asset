@@ -7,6 +7,7 @@ TagManager:
   - DeathZone
   - FxTemporaire
   - Bolt
+  - Hold
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - 
   - Bolt
   - Wood
-  - 
-  - 
+  - Bolt_UI
+  - Hold_UI
   - 
   - 
   - 

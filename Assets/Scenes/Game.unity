@@ -1144,14 +1144,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxList:
+  - {fileID: 11400000, guid: e1b307d0aa0c44149aa641f1a42debab, type: 2}
   - {fileID: 11400000, guid: 87bf53d436b176444a1f5a2a9b4eca16, type: 2}
+  - {fileID: 11400000, guid: 446309ebb4cdf4e4bbb31ea70bbd60e6, type: 2}
   - {fileID: 11400000, guid: ae95ba8d267fb7c4da0b11e57d2f3375, type: 2}
   - {fileID: 11400000, guid: aa54014032a450c4f8722778150008fe, type: 2}
-  - {fileID: 11400000, guid: 236283f91cd355f498949cc6595a13bd, type: 2}
-  - {fileID: 11400000, guid: 446309ebb4cdf4e4bbb31ea70bbd60e6, type: 2}
-  - {fileID: 11400000, guid: 444a3497cdfd3cc488939436958200cb, type: 2}
   - {fileID: 11400000, guid: 34ae2744a8a35684d9abd7d8de59353e, type: 2}
-  - {fileID: 11400000, guid: e1b307d0aa0c44149aa641f1a42debab, type: 2}
+  - {fileID: 11400000, guid: 236283f91cd355f498949cc6595a13bd, type: 2}
+  - {fileID: 11400000, guid: 444a3497cdfd3cc488939436958200cb, type: 2}
   bgmList: []
 --- !u!1 &1971410711
 GameObject:

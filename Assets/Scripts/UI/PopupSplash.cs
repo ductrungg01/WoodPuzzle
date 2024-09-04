@@ -13,7 +13,7 @@ namespace WoodPuzzle.UI
         public CanvasGroup canvasGroup;
         public TMP_Text progressText;
 
-        private float remainTimeToLoading = 2.0f;
+        [SerializeField] private float remainTimeToLoading = .5f;
         private float currentRemainLoadingTime = 0.0f;
         private bool allowCountdownTime = false;
 

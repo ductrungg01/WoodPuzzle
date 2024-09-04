@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +36,7 @@ namespace WoodPuzzle.Core
             if (sfx != null)
             {
                 sfxSource.clip = sfx.audioClip;
-                sfxSource.volume = volume; 
+                sfxSource.volume = volume;
                 sfxSource.loop = loop;
                 sfxSource.Play();
 
@@ -136,7 +136,7 @@ namespace WoodPuzzle.Core
             if (type == EndGameType.WIN)
             {
                 PlaySFX("Yeah");
-            } 
+            }
 
             if (type == EndGameType.LOSE)
             {
@@ -145,5 +145,3 @@ namespace WoodPuzzle.Core
         }
     }
 }
-
-

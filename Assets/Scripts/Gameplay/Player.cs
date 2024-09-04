@@ -19,29 +19,30 @@ public class Player : MonoBehaviour
             Vector2 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit;
 
-            // if the clicked bolt is null, only hit the Bolt layer
-            if (holdingBolt == null)
+            LayerMask boltLayer = LayerMask.GetMask("Bolt_UI");
+            LayerMask holdLayer = LayerMask.GetMask("Hold_UI");
+
+            hit = Physics2D.Raycast(ray, Vector2.zero, Mathf.Infinity, boltLayer);
+
+            if (this.holdingBolt != null && hit.collider == null)
             {
-                LayerMask boltLayer = LayerMask.GetMask("Bolt");
-                hit = Physics2D.Raycast(ray, Vector2.zero, Mathf.Infinity, boltLayer);
-            }
-            else
-            {
-                // Otherewise, hit everything
-                hit = Physics2D.Raycast(ray, Vector2.zero);
-            }
+                hit = Physics2D.Raycast(ray, Vector2.zero, Mathf.Infinity, holdLayer);
+            } 
+
 
             if (hit.collider != null)
             {
+                Debug.Log(hit.collider.gameObject.name);
+
                 // Check if picking the bolt
-                Bolt clickedBolt = hit.collider.GetComponent<Bolt>();
+                Bolt clickedBolt = hit.collider.GetComponentInParent<Bolt>();
                 if (clickedBolt != null)
                 {
                     UpdateHoldingBolt(clickedBolt);
                 }
 
                 // Check if click to a hold
-                Hold clickedHold = hit.collider.GetComponent<Hold>();
+                Hold clickedHold = hit.collider.GetComponentInParent<Hold>();
                 if (clickedHold != null)
                 {
                     Vector3 holdPosition = clickedHold.gameObject.transform.position;

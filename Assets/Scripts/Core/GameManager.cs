@@ -59,6 +59,7 @@ namespace WoodPuzzle.Core
         public void PauseGame()
         {
             CurrentGameState = GameState.PAUSING;
+            Time.timeScale = 0;
 
             UiManager.Instance.OnPauseGame();
         }
@@ -66,6 +67,7 @@ namespace WoodPuzzle.Core
         public void ResumeGame()
         {
             CurrentGameState = GameState.PLAYING;
+            Time.timeScale = 1;
 
             UiManager.Instance.OnResumeGame();
         }
