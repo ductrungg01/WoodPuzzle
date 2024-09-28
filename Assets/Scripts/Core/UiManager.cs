@@ -18,6 +18,7 @@ namespace WoodPuzzle.Core
         public GameObject popupInGamePrefab;
         public GameObject popupEndGameWinPrefab;
         public GameObject popupEndGameLosePrefab;
+        public GameObject popupPauseGamePrefab;
 
 
         private void Awake()
@@ -142,6 +143,18 @@ namespace WoodPuzzle.Core
         }
         #endregion
 
+        #region POPUP PAUSE
+        private PopupPause _popupPause;
+        public PopupPause GetPopupPause()
+        {
+            if (_popupPause != null) return _popupPause;
+
+            GameObject newObj = Instantiate(popupPauseGamePrefab, popupTargetPosition.transform);
+            SetupElementAttributes(newObj);
+            _popupPause = newObj.GetComponent<PopupPause>();
+            return _popupPause;
+        }
+        #endregion
 
         public void OnPrepareGame()
         {
@@ -160,12 +173,12 @@ namespace WoodPuzzle.Core
 
         public void OnPauseGame()
         {
-            throw new System.NotImplementedException();
+            GetPopupPause().Show();
         }
 
         public void OnResumeGame()
         {
-            throw new System.NotImplementedException();
+            GetPopupPause().Hide();
         }
 
         public void OnFinishGame(EndGameType type)

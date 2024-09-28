@@ -173,6 +173,7 @@ MonoBehaviour:
   popupInGamePrefab: {fileID: 2743166912641069946, guid: 789b69f04e85e4644b1e02f90439ff60, type: 3}
   popupEndGameWinPrefab: {fileID: 3064693652776099519, guid: 14fd090e2d7ed8c49a4650006651f1a3, type: 3}
   popupEndGameLosePrefab: {fileID: 268586631185039658, guid: f99de4d8c21c04647b9fa806ca6bc9b0, type: 3}
+  popupPauseGamePrefab: {fileID: 5616112924238661409, guid: 3fe0a33a9dfc84c4c885c0249cf5a02f, type: 3}
 --- !u!1 &155820444
 GameObject:
   m_ObjectHideFlags: 0

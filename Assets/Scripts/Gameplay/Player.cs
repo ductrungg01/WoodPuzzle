@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        ProcessUserClicking();
+        if (GameManager.CurrentGameState == GameState.PLAYING)
+            ProcessUserClicking();
     }
 
     private void ProcessUserClicking()
